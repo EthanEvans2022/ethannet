@@ -1,0 +1,8 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+allowBuilds:
+  '@biomejs/biome': true
+  core-js-pure: false
+  esbuild: true
+  sharp: true

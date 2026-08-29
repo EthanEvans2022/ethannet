@@ -1,0 +1,23 @@
+{
+  "name": "ethannet",
+  "version": "0.0.1",
+  "private": true,
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "dev": "concurrently -n backend,frontend -c blue,magenta \"pnpm --filter @ethannet/backend dev\" \"pnpm --filter @ethannet/frontend dev\"",
+    "build": "pnpm -r --if-present run build",
+    "start": "concurrently -n backend,frontend -c blue,magenta \"pnpm --filter @ethannet/backend start\" \"pnpm --filter @ethannet/frontend start\"",
+    "typecheck": "pnpm -r --if-present run typecheck",
+    "test": "pnpm -r --if-present run test",
+    "test:e2e": "pnpm --filter @ethannet/e2e test:e2e",
+    "storybook": "pnpm --filter @ethannet/frontend storybook",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "format": "biome format --write ."
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "concurrently": "^9.1.0",
+    "typescript": "^5.7.2"
+  }
+}
