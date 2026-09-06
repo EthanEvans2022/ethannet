@@ -7,6 +7,7 @@ A fullstack TypeScript monorepo managed with pnpm workspaces.
 - [apps/api](apps/api) — Express API server
 - [apps/ui](apps/ui) — Next.js app
 - [apps/core](apps/core) — Node.js app
+- [apps/media-server](apps/media-server) — Express server that serves media files to clients
 - [apps/e2e](apps/e2e) — Playwright end-to-end tests covering api + ui together
 - [packages/types](packages/types) — TypeScript types shared between api and ui
 - [docs](docs) — documentation, including plans

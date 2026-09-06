@@ -5,6 +5,7 @@
 - `apps/api` — Express API server (TypeScript).
 - `apps/ui` — Next.js app (App Router, TypeScript).
 - `apps/core` — Node.js app (TypeScript).
+- `apps/media-server` — Express server (TypeScript) that reads files from a local media directory (`MEDIA_DIR`, defaults to `apps/media-server/media`) and serves them to clients: `GET /api/media` lists files as JSON, `GET /media/<name>` streams a file via `express.static`.
 - `apps/e2e` — Playwright end-to-end tests that exercise api + ui together. It's a workspace package rather than living inside either app, since it depends on both.
 - `packages/types` — TypeScript types shared between api and ui (API request/response contracts).
 - `docs` — documentation for the whole repo, including [plans](plans).
