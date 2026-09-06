@@ -13,5 +13,5 @@ app.use((_req, res, next) => {
 app.use("/api/hello", helloRouter);
 
 app.listen(port, () => {
-  console.log(`[backend] listening on http://localhost:${port}`);
+  console.log(`[api] listening on http://localhost:${port}`);
 });

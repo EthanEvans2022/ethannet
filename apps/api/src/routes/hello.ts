@@ -3,7 +3,7 @@ import { Router } from "express";
 
 export function buildHelloResponse(): HelloResponse {
   return {
-    message: "Hello from the Express backend!",
+    message: "Hello from the Express API!",
     timestamp: new Date().toISOString(),
   };
 }

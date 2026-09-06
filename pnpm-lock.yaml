@@ -18,7 +18,7 @@ importers:
         specifier: ^5.7.2
         version: 5.9.3
 
-  apps/backend:
+  apps/api:
     dependencies:
       '@ethannet/types':
         specifier: workspace:*
@@ -46,13 +46,35 @@ importers:
         specifier: ^2.1.8
         version: 2.1.9(@types/node@22.20.1)(jsdom@25.0.1(supports-color@8.1.1))(supports-color@8.1.1)(terser@5.51.2)
 
+  apps/core:
+    dependencies:
+      '@ethannet/types':
+        specifier: workspace:*
+        version: link:../../packages/types
+    devDependencies:
+      '@types/node':
+        specifier: ^22.10.2
+        version: 22.20.1
+      tsup:
+        specifier: ^8.3.5
+        version: 8.5.1(jiti@2.7.0)(postcss@8.5.26)(supports-color@8.1.1)(tsx@4.23.12)(typescript@5.9.3)
+      tsx:
+        specifier: ^4.19.2
+        version: 4.23.12
+      typescript:
+        specifier: ^5.7.2
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@22.20.1)(jsdom@25.0.1(supports-color@8.1.1))(supports-color@8.1.1)(terser@5.51.2)
+
   apps/e2e:
     devDependencies:
       '@playwright/test':
         specifier: ^1.49.1
         version: 1.62.1
 
-  apps/frontend:
+  apps/ui:
     dependencies:
       '@ethannet/types':
         specifier: workspace:*
