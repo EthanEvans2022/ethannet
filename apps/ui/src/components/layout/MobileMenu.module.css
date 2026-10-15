@@ -1,0 +1,106 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Three bars: the span is the middle bar, the pseudo-elements the outer two. */
+.bars,
+.bars::before,
+.bars::after {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+}
+
+.bars {
+  position: relative;
+}
+
+.bars::before,
+.bars::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+
+.bars::before {
+  top: -7px;
+}
+
+.bars::after {
+  top: 7px;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: rgb(0 0 0 / 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 200ms ease, visibility 0s linear 200ms;
+}
+
+.backdropOpen {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 200ms ease;
+}
+
+/* About a third of the screen, but never too narrow for the links on phones. */
+.panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: min(100vw, max(33vw, 16rem));
+  padding: 1rem 1.5rem;
+  background: var(--color-surface);
+  box-shadow: -4px 0 16px rgb(0 0 0 / 0.15);
+  font-size: 1.125rem;
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform 250ms ease, visibility 0s linear 250ms;
+}
+
+.panelOpen {
+  transform: translateX(0);
+  visibility: visible;
+  transition: transform 250ms ease;
+}
+
+.close {
+  align-self: flex-end;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .backdrop,
+  .backdropOpen,
+  .panel,
+  .panelOpen {
+    transition: none;
+  }
+}

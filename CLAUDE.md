@@ -36,7 +36,9 @@ pnpm --filter @ethannet/e2e exec playwright test tests/home.spec.ts
   - The Node apps (api, media-server, core) run via `tsx watch` in dev and are bundled by `tsup` for production (`tsc --outDir` fails on files outside each app's `rootDir`). `tsc` is used only for typechecking.
 - **api**: routers in `apps/api/src/routes/`, mounted under `/api/*` in `src/index.ts`. Response-building logic is extracted into pure functions (e.g. `buildHelloResponse`) so Vitest can test it without HTTP. CORS is wide open for local dev only.
 - **media-server**: serves files from `MEDIA_DIR` (default `apps/media-server/media`). The router is built by a factory (`buildMediaRouter(mediaDir)`) so the directory is injected rather than hard-coded.
-- **ui**: async server components fetch the api at `NEXT_PUBLIC_API_URL` (default `http://localhost:4001`). Presentational components in `src/components/` take data as props and each has a `.test.tsx` (jsdom + Testing Library) and `.stories.tsx`. `@/*` aliases `apps/ui/src/*`.
+- **ui**: async server components fetch the api at `NEXT_PUBLIC_API_URL` (default `http://localhost:4001`). Presentational components in `src/components/` take data as props and each has a `.test.tsx` (jsdom + Testing Library) and `.stories.tsx`. `@/*` aliases `apps/ui/src/*` (mirrored in `vitest.config.ts`).
+  - Site-wide layout (header, footer, mobile menu) lives in `src/components/layout/`. The link lists live in `src/config/navigation.ts` and are injected only by `app/layout.tsx`; components never import config directly. See [docs/features/site-layout.md](docs/features/site-layout.md).
+  - Styling is CSS Modules: an `X.module.css` beside each component, with resets and color variables in `app/globals.css`.
 - **Code style**: Biome with 2-space indent, double quotes, organized imports. TS is `strict` with `noUncheckedIndexedAccess`; per-package tsconfigs extend `tsconfig.base.json`.
 
 ## Development Principles
@@ -98,5 +100,7 @@ Every new feature and every change ships with documentation. There is no fixed d
 - **Workflows**: document dev, build, test, and release workflows, and any setup steps, in `docs/` (or here, if they belong in this overview). Update them when a workflow changes.
 - **Testing and usability**: record how to test a feature and how it's meant to be used: the user flows it supports, how to run or reproduce it, and the edge cases covered.
 - **Code**: add doc comments to exported functions, types, and API contracts in `packages/types`, especially where intent or constraints aren't obvious from the signature.
+- **Features**: each feature gets a page in `docs/features/` covering what it does, how to change it, its user flows and edge cases, and how to test it.
+- **Plans**: save every approved implementation plan to `docs/plans/` as `YYYY-MM-DD-short-slug.md` (e.g. `2026-08-29-initialize-monorepo.md`), before or alongside the implementation. Link the plan to the feature docs it produces and link those docs back to the plan. If the build ends up differing from the plan, add an "As built" section noting the differences.
 - Update existing docs in the same change that makes them out of date.
 - **Obsidian vault**: the repo is meant to be opened as an Obsidian vault for reading the docs. Write all written documentation as Markdown (`.md`) files, and link related docs to each other wherever it helps a reader navigate (e.g. a feature doc linking to the workflow it uses). Use relative Markdown links (`[Architecture](docs/architecture.md)`) so the links work both in Obsidian and on GitHub.
