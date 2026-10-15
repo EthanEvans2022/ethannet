@@ -1,0 +1,13 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@4.0.1/schema.json",
+  "baseBranch": "dev",
+  "changelog": "@changesets/cli/changelog",
+  "commit": false,
+  "format": false,
+  "fixed": [["@ethannet/*"]],
+  "linked": [],
+  "access": "restricted",
+  "privatePackages": { "version": true, "tag": false },
+  "updateInternalDependencies": "patch",
+  "ignore": []
+}

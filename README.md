@@ -12,7 +12,7 @@ A fullstack TypeScript monorepo managed with pnpm workspaces.
 - [packages/types](packages/types) — TypeScript types shared between api and ui
 - [docs](docs) — documentation, including plans
 
-See [docs/architecture.md](docs/architecture.md) for how the pieces fit together.
+See [docs/architecture.md](docs/architecture.md) for how the pieces fit together, and [docs/releasing.md](docs/releasing.md) for the branch, versioning and release workflow.
 
 ## Getting started
 
@@ -36,3 +36,5 @@ This starts the api on http://localhost:4001 and the ui on http://localhost:3000
 | `pnpm storybook` | Run Storybook for the ui's components |
 | `pnpm lint` | Lint the whole repo with Biome |
 | `pnpm format` | Format the whole repo with Biome |
+| `pnpm changeset` | Add a changeset describing the current branch's change |
+| `pnpm version-packages` | Release only: apply pending changesets to versions and changelogs |

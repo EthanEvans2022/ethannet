@@ -1,6 +1,5 @@
 {
   "name": "ethannet",
-  "version": "0.0.1",
   "private": true,
   "engines": {
     "node": ">=20"
@@ -15,26 +14,14 @@
     "storybook": "pnpm --filter @ethannet/ui storybook",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
-    "format": "biome format --write ."
+    "format": "biome format --write .",
+    "changeset": "changeset",
+    "version-packages": "changeset version"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
+    "@changesets/cli": "^3.0.3",
     "concurrently": "^9.1.0",
     "typescript": "^5.7.2"
-  },
-  "pnpm": {
-    "overrides": {
-      "esbuild@<=0.24.2": ">=0.25.0",
-      "vite@<=6.4.1": ">=6.4.2",
-      "esbuild@>=0.27.3 <0.28.1": ">=0.28.1",
-      "vite@<=6.4.2": ">=6.4.3",
-      "vitest@<3.2.6": ">=3.2.6",
-      "qs@>=6.14.2 <=6.15.3": ">=6.16.0",
-      "qs@>=2.2.5 <6.16.0": ">=6.16.0",
-      "vitest@>=2.1.0 <4.1.11": ">=4.1.11",
-      "@vitest/mocker@>=2.1.0 <4.1.11": ">=4.1.11",
-      "image-size@>=1.2.0 <=2.0.2": ">=2.0.3",
-      "image-size@>=0.6.3 <=2.0.2": ">=2.0.3"
-    }
   }
 }
