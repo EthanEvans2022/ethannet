@@ -30,4 +30,5 @@ The api's production build uses `tsup` (an esbuild wrapper) instead of `tsc`, be
 - **Biome** — a single root `biome.json` handles linting and formatting for the whole repo (replaces ESLint + Prettier).
 - **Vitest** — unit tests, scoped per-package: the api tests a pure function extracted from its route handler (`node` environment); the ui tests a presentational component with `@testing-library/react` (`jsdom` environment).
 - **Storybook** — lives in `apps/ui` (via `@storybook/nextjs`) for developing UI components in isolation.
+- **Changesets** — manages the single shared version of every package; see [Branching, versioning and releasing](releasing.md).
 - **Playwright** — lives in `apps/e2e`, which starts both the api and ui dev servers itself (via Playwright's `webServer` array config) before running browser tests against the full stack.
